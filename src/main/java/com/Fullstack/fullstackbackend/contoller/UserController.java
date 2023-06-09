@@ -28,19 +28,20 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    User getUserById(@PathVariable Long id)
-    {
-    return userRepo.findById(id).get();
+    User getUserById(@PathVariable Long id) {
+        return userRepo.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @PutMapping("/user/{id}")
-    Optional<User> updateUser(@RequestBody User newUser, @PathVariable Long id) {
-        return userRepo.findById(id).map(user -> {
-             user.setUsername(newUser.getUsername());
-             user.setName(newUser.getName());
-             user.setEmail(newUser.getEmail());
-             return userRepo.save(user);
-         });
+    User updateUser(@RequestBody User newUser, @PathVariable Long id) {
+        return userRepo.findById(id)
+                .map(user -> {
+                    user.setUsername(newUser.getUsername());
+                    user.setName(newUser.getName());
+                    user.setEmail(newUser.getEmail());
+                    return userRepo.save(user);
+                }).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @DeleteMapping("/user/{id}")
