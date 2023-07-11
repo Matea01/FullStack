@@ -17,23 +17,23 @@ public class UserController {
     @Autowired
     private UserRepository userRepo;
 
-    @PostMapping("/user")
+    @PostMapping("/api/user")
     User newUser(@RequestBody User newUser) {
     return userRepo.save(newUser);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/api/users")
     List<User> gelAllUsers(){
         return userRepo.findAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/api/user/{id}")
     User getUserById(@PathVariable Long id) {
         return userRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/api/user/{id}")
     User updateUser(@RequestBody User newUser, @PathVariable Long id) {
         return userRepo.findById(id)
                 .map(user -> {
@@ -44,7 +44,7 @@ public class UserController {
                 }).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/api/user/{id}")
     String deleteUser(@PathVariable Long id){
         if(!userRepo.existsById(id)){
             throw new UserNotFoundException(id);
