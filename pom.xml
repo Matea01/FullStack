@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.Fullstack</groupId>
 	<artifactId>fullstack-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>y
+	<version>0.0.1-SNAPSHOT</version>
 	<name>fullstack-backend</name>
 	<description>Fullstack application</description>
 	<properties>
@@ -35,29 +35,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-	<!--<dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>4.0.1</version>
-        <scope>provided</scope>
-    </dependency>-->
-    <dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-boot-starter</artifactId>
-        <version>3.0.0</version>
-    </dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-data-rest</artifactId>
-			<version>3.0.0</version>
 		</dependency>
 </dependencies>
 
